@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mande',
-        'USER': 'gowrdvzoje',
-        'PASSWORD': 'MJV5068WVL8Z554Y$',
-        'HOST': 'manders-server.mysql.database.azure.com',  
-        'ssl-mode': 'require'}
+        'NAME': os.getenv('AZURE_MYSQL_NAME'),
+        'USER': os.getenv('AZURE_MYSQL_USER'),
+        'PASSWORD': os.getenv('AZURE_MYSQL_PASSWORD'),
+        'HOST': os.getenv('AZURE_MYSQL_HOST')
+        }
 }
 
 
