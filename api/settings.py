@@ -83,9 +83,8 @@ DATABASES = {
         'NAME': 'mande',
         'USER': 'gowrdvzoje',
         'PASSWORD': 'MJV5068WVL8Z554Y$',
-        'HOST': 'manders-server',  
-        'PORT': '3306'
-    }
+        'HOST': 'manders-server.mysql.database.azure.com',  
+        'ssl-mode': 'require'}
 }
 
 
