@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-=lmqryc=-7mey*7xo$r&zt56!a_m1)*9%)ju%vynul-(w4^n@!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -105,9 +105,12 @@ DATABASES = {
         'PASSWORD': os.getenv('AZURE_MYSQL_PASSWORD'),
         'HOST': os.getenv('AZURE_MYSQL_HOST'),
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': {'cipher': 'AES256-SHA'},
-            },
+            'ssl': {
+                'ca': 'DigiCertGlobalRootCA.crt.pem',
+                'cipher': 'AES256-SHA',
+                'tls_versions': ['TLSv1.2']
+            }
+        } 
         }
 }
 
