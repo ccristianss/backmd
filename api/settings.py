@@ -22,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+#SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-=lmqryc=-7mey*7xo$r&zt56!a_m1)*9%)ju%vynul-(w4^n@!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -77,16 +78,39 @@ WSGI_APPLICATION = 'api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'mande',
+#        'USER': 'root',
+#        'PASSWORD': '',
+#        'HOST': 'localhost'
+#        }
+#}
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': os.getenv('AZURE_MYSQL_NAME'),
+#        'USER': os.getenv('AZURE_MYSQL_USER'),
+#        'PASSWORD': os.getenv('AZURE_MYSQL_PASSWORD'),
+#        'HOST': os.getenv('AZURE_MYSQL_HOST')
+#        }
+#}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('AZURE_MYSQL_NAME'),
         'USER': os.getenv('AZURE_MYSQL_USER'),
         'PASSWORD': os.getenv('AZURE_MYSQL_PASSWORD'),
-        'HOST': os.getenv('AZURE_MYSQL_HOST')
+        'HOST': os.getenv('AZURE_MYSQL_HOST'),
+        'PORT': 'tu_puerto',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'ssl': {'cipher': 'AES256-SHA'},
+            },
         }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
