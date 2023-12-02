@@ -104,7 +104,6 @@ DATABASES = {
         'USER': os.getenv('AZURE_MYSQL_USER'),
         'PASSWORD': os.getenv('AZURE_MYSQL_PASSWORD'),
         'HOST': os.getenv('AZURE_MYSQL_HOST'),
-        'PORT': 'tu_puerto',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'ssl': {'cipher': 'AES256-SHA'},
